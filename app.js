@@ -15,8 +15,8 @@ const app = express();
 app.use(morgan('combined'));
 app.use(express.static(path.join(__dirname, '/public/')));
 
-app.get('/', (req, res) => {
-    res.send('Hello World!');
+app.get('/api', (req, res) => {
+    res.json({message: 'Hello World!'});
 })
 
 app.listen(PORT, () => {
