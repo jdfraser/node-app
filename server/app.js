@@ -13,10 +13,14 @@ const logDebug = debug('app');
 
 const app = express();
 app.use(morgan('combined'));
-app.use(express.static(path.join(__dirname, '/public/')));
+app.use(express.static(path.join(__dirname, '/../client/build')));
 
 app.get('/api', (req, res) => {
     res.json({message: 'Hello World!'});
+})
+
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'))
 })
 
 app.listen(PORT, () => {

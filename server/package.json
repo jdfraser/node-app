@@ -7,7 +7,8 @@
   "scripts": {
     "start": "DEBUG=app nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "debug": "DEBUG=* nodemon app.js"
+    "debug": "DEBUG=* nodemon app.js",
+    "build": "cd ../client && npm i && npm run build"
   },
   "author": "",
   "license": "ISC",
@@ -20,7 +21,7 @@
   },
   "nodemonConfig": {
     "restartable": "rs",
-    "delay": 2500,
+    "delay": 1500,
     "env": {
       "PORT": 4000
     }
