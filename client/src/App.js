@@ -21,6 +21,14 @@ function App() {
   const [message, setMessage] = React.useState('');
   const [messages, setMessages] = React.useState([]);
 
+  React.useEffect(() => {
+    fetch('/messages', {
+      method: 'GET'
+    })
+    .then(res => res.json())
+    .then(data => setMessages(data.messages));
+  }, [])
+
   const sendMessage = message => {
     fetch('/messages', {
       method: 'POST',

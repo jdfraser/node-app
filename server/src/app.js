@@ -19,6 +19,10 @@ app.use(morgan('combined'));
 app.use(express.static(path.join(__dirname, '../../client/build')));
 app.use(express.json());
 
+app.get('/messages', (req, res) => {
+    res.json({messages: messages});
+})
+
 app.post('/messages', (req, res) => {
     messages.push(req.body.message);
     res.json({messages: messages});
