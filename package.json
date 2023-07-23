@@ -7,7 +7,7 @@
   "scripts": {
     "start": "cd server/src && npm ci && npm start",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cd client && npm i && npm run build"
+    "build": "cd client && npm ci && npm run build"
   },
   "author": "",
   "license": "ISC"

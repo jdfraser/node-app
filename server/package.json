@@ -1,7 +1,7 @@
 {
   "name": "node-app",
   "version": "1.0.0",
-  "description": "A simple app in node :)",
+  "description": "A simple node chat server",
   "main": "src/app.js",
   "type": "module",
   "scripts": {
