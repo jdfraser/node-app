@@ -13,6 +13,9 @@ const theme = createTheme({
   },
 });
 
+const ownNameColor = "lime";
+const otherNameColor = "#7c9dff";
+
 function App() {
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
@@ -65,13 +68,19 @@ function App() {
         open={showNameSelector}
         onChange={onNameChange}
         onSubmit={onNameSubmit}
+        ownNameColor={ownNameColor}
         name={name} 
       />
       <Container maxWidth={false}>
         <CurrentName name={name} />
       </Container>
       <Container maxWidth={false}>
-        <ChatWindow messages={messages} />
+        <ChatWindow 
+          messages={messages} 
+          ownNameColor={ownNameColor}
+          otherNameColor={otherNameColor}
+          name={name}
+        />
       </Container>
       <Container maxWidth={false}>
         <ChatInput 

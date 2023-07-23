@@ -28,12 +28,22 @@ export default function ChatWindow(props) {
             overflowY: "scroll"
           }}
         >
-            {messages.map((m, i) => (<Message key={`message-${i}`} message={m}/>))}
+            {messages.map((m, i) => (
+            <Message 
+              key={`message-${i}`} 
+              message={m}
+              ownNameColor={props.ownNameColor}
+              otherNameColor={props.otherNameColor}
+              name={props.name}
+            />))}
             <div ref={messagesEndRef} />
         </Box>
     );
 }
 
 ChatWindow.propTypes = {
+    ownNameColor: PropTypes.string,
+    otherNameColor: PropTypes.string,
+    name: PropTypes.string,
     messages: PropTypes.array
 }
