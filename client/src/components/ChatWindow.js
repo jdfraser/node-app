@@ -1,6 +1,7 @@
 import React, {useEffect, useRef} from 'react';
 import { Box } from '@mui/material';
 import Message from './Message';
+import PropTypes from 'prop-types';
 
 export default function ChatWindow(props) {
     const messages = props.messages;
@@ -31,4 +32,8 @@ export default function ChatWindow(props) {
             <div ref={messagesEndRef} />
         </Box>
     );
+}
+
+ChatWindow.propTypes = {
+    messages: PropTypes.array
 }

@@ -1,5 +1,6 @@
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
+import PropTypes from 'prop-types';
 
 export default function SendButton(props) {
     return (
@@ -13,3 +14,7 @@ export default function SendButton(props) {
         </Button>
     );
 } 
+
+SendButton.propTypes = {
+    onClick: PropTypes.func
+}

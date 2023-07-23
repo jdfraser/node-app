@@ -1,6 +1,7 @@
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import SendButton from './SendButton';
+import PropTypes from 'prop-types';
 
 export default function ChatInput(props) {
     const handleKeyDown = event => {
@@ -26,4 +27,10 @@ export default function ChatInput(props) {
             <SendButton onClick={props.onSend} />
         </Box>
     );
+}
+
+ChatInput.propTypes = {
+    onSend: PropTypes.func,
+    onMessageChange: PropTypes.func,
+    message: PropTypes.string
 }

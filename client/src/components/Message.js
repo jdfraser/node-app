@@ -1,4 +1,5 @@
 import { Box } from '@mui/material';
+import PropTypes from 'prop-types';
 
 export default function Message(props) {
     return (
@@ -6,4 +7,8 @@ export default function Message(props) {
             {props.message}
         </Box>
     );
+}
+
+Message.propTypes = {
+    message: PropTypes.string
 }
