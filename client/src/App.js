@@ -31,6 +31,12 @@ function App() {
   }, [])
 
   const sendMessage = message => {
+    if(message == '') {
+      return;
+    }
+
+    setMessage('');
+
     fetch('/messages', {
       method: 'POST',
       headers: {
@@ -42,7 +48,6 @@ function App() {
     })
     .then(res => res.json())
     .then(data => setMessages(data.messages))
-    .then(() => setMessage(''))
   }
 
   const onMessageChange = event => {
