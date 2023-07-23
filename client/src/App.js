@@ -61,6 +61,10 @@ function App() {
     setShowNameSelector(false);
   }
 
+  const onNameSelectorClose = () => {
+    setShowNameSelector(false);
+  }
+
   const onEditName = () => {
     setShowNameSelector(true);
   }
@@ -72,6 +76,7 @@ function App() {
         open={showNameSelector}
         onChange={onNameChange}
         onSubmit={onNameSubmit}
+        onClose={onNameSelectorClose}
         ownNameColor={ownNameColor}
         name={name} 
       />
