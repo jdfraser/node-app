@@ -36,6 +36,7 @@ function App() {
     })
     .then(res => res.json())
     .then(data => setMessages(data.messages))
+    .then(() => setMessage(''))
   }
 
   const onMessageChange = event => {
@@ -53,7 +54,11 @@ function App() {
         <ChatWindow messages={messages} />
       </Container>
       <Container maxWidth={false}>
-        <ChatInput onMessageChange={onMessageChange} onSend={onSend} />
+        <ChatInput 
+          onMessageChange={onMessageChange} 
+          onSend={onSend} 
+          message={message} 
+        />
       </Container>
     </ThemeProvider>
   );

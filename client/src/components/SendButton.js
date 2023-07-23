@@ -7,7 +7,8 @@ export default function SendButton(props) {
           variant="contained"
           style={{marginLeft: "1em"}}
           endIcon={<SendIcon />} 
-          onClick={props.onSend}>
+          onClick={props.onClick}
+        >
             Send
         </Button>
     );
