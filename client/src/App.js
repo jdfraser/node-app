@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
+import Button from '@mui/material/Button';
 import './App.css';
 
 function App() {
@@ -15,9 +16,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          {!data ? 'Loading...' : data}
-        </p>
+        <Button variant="contained">{!data ? 'Loading...' : data}</Button>
       </header>
     </div>
   );
