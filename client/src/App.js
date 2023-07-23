@@ -57,27 +57,27 @@ function App() {
     })
   }
 
-  const onMessageChange = event => {
+  const handleChangeMessage = event => {
     setMessage(event.target.value);
   }
 
-  const onSend = () => {
+  const handleSubmitMessage = () => {
     sendMessage(message);
   }
 
-  const onNameChange = event => {
+  const handleChangeName = event => {
     setName(event.target.value);
   }
 
-  const onNameSubmit = () => {
+  const handleSubmitName = () => {
     setShowNameSelector(false);
   }
 
-  const onNameSelectorClose = () => {
+  const handleCloseNameSelector = () => {
     setShowNameSelector(false);
   }
 
-  const onEditName = () => {
+  const handleOpenNameSelector = () => {
     setShowNameSelector(true);
   }
 
@@ -88,13 +88,13 @@ function App() {
         <Grid item xs={8}>
           <NameSelector 
             open={showNameSelector}
-            onChange={onNameChange}
-            onSubmit={onNameSubmit}
-            onClose={onNameSelectorClose}
+            onChange={handleChangeName}
+            onSubmit={handleSubmitName}
+            onClose={handleCloseNameSelector}
             ownNameColor={ownNameColor}
             name={name} 
           />
-          <CurrentName name={name} onEdit={onEditName} />
+          <CurrentName name={name} onEdit={handleOpenNameSelector} />
           <ChatWindow 
             messages={messages} 
             ownNameColor={ownNameColor}
@@ -104,8 +104,8 @@ function App() {
         </Grid>
         <Grid item xs={8}>
           <ChatInput 
-            onMessageChange={onMessageChange} 
-            onSend={onSend} 
+            onMessageChange={handleChangeMessage} 
+            onSend={handleSubmitMessage} 
             message={message} 
           />
         </Grid>
