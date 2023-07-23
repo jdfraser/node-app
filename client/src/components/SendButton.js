@@ -6,9 +6,9 @@ export default function SendButton(props) {
     return (
         <Button 
           variant="contained"
-          style={{marginLeft: "1em"}}
           endIcon={<SendIcon />} 
           onClick={props.onClick}
+          style={props.style}
         >
             Send
         </Button>
@@ -16,5 +16,6 @@ export default function SendButton(props) {
 } 
 
 SendButton.propTypes = {
-    onClick: PropTypes.func
+    onClick: PropTypes.func,
+    style: PropTypes.object
 }

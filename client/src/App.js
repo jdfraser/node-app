@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { ThemeProvider, createTheme, Container } from '@mui/material';
+import { ThemeProvider, createTheme, Grid } from '@mui/material';
 import ChatWindow from './components/ChatWindow';
 import ChatInput from './components/ChatInput';
 
@@ -31,7 +31,7 @@ function App() {
   }, [])
 
   const sendMessage = message => {
-    if(message == '') {
+    if(message === '') {
       return;
     }
 
@@ -77,32 +77,32 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <meta name="viewport" content="initial-scale=1, width=device-width" />
-      <NameSelector 
-        open={showNameSelector}
-        onChange={onNameChange}
-        onSubmit={onNameSubmit}
-        onClose={onNameSelectorClose}
-        ownNameColor={ownNameColor}
-        name={name} 
-      />
-      <Container maxWidth={false}>
-        <CurrentName name={name} onEdit={onEditName} />
-      </Container>
-      <Container maxWidth={false}>
-        <ChatWindow 
-          messages={messages} 
-          ownNameColor={ownNameColor}
-          otherNameColor={otherNameColor}
-          name={name}
-        />
-      </Container>
-      <Container maxWidth={false}>
-        <ChatInput 
-          onMessageChange={onMessageChange} 
-          onSend={onSend} 
-          message={message} 
-        />
-      </Container>
+      <Grid container spacing={2} alignItems="center" justifyContent="center" direction="row">
+        <Grid item xs={8}>
+          <NameSelector 
+            open={showNameSelector}
+            onChange={onNameChange}
+            onSubmit={onNameSubmit}
+            onClose={onNameSelectorClose}
+            ownNameColor={ownNameColor}
+            name={name} 
+          />
+          <CurrentName name={name} onEdit={onEditName} />
+          <ChatWindow 
+            messages={messages} 
+            ownNameColor={ownNameColor}
+            otherNameColor={otherNameColor}
+            name={name}
+          />
+        </Grid>
+        <Grid item xs={8}>
+          <ChatInput 
+            onMessageChange={onMessageChange} 
+            onSend={onSend} 
+            message={message} 
+          />
+        </Grid>
+      </Grid>
     </ThemeProvider>
   );
 }
