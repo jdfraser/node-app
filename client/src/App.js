@@ -34,7 +34,7 @@ function App() {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        message: message
+        message: {name: name, text: message}
       })
     })
     .then(res => res.json())
