@@ -5,6 +5,7 @@ import ChatInput from './components/ChatInput';
 
 import './App.css';
 import NameSelector from './components/NameSelector';
+import CurrentName from './components/CurrentName';
 
 const theme = createTheme({
   palette: {
@@ -67,12 +68,7 @@ function App() {
         name={name} 
       />
       <Container maxWidth={false}>
-        <Box
-          fontFamily="Monospace"
-          fontSize="16px"
-        >
-          Name: {name}
-        </Box>
+        <CurrentName name={name} />
       </Container>
       <Container maxWidth={false}>
         <ChatWindow messages={messages} />
