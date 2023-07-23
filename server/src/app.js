@@ -23,30 +23,24 @@ app.use(express.json());
 
 const httpServer = http.createServer(app);
 const io = new Server(httpServer);
-const sockets = [];
+
+const emitMessages = () => {
+    io.emit('updateMessages', messages);
+}
 
 io.on('connection', socket => {
-    logDebug('New connection');
-    sockets.push(socket);
+    logDebug('New connection.');
+    socket.emit('updateMessages', messages);
+
     socket.on('disconnect', () => {
         logDebug('Client disconnected');
     })
 })
 
-const emitMessages = socket => {
-    socket.emit('updateMessages', messages);
-}
-
-app.get('/messages', (req, res) => {
-    res.json({messages: messages});
-})
-
 app.post('/messages', (req, res) => {
     messages.push(req.body.message);
-    sockets.forEach(s => {
-        emitMessages(s);
-    });
-    res.json({messages: messages});
+    emitMessages();
+    res.sendStatus(200);
 })
 
 app.get('*', (req, res) => {

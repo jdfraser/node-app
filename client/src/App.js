@@ -30,12 +30,6 @@ function App() {
       setMessages(messages);
     });
 
-    fetch('/messages', {
-      method: 'GET'
-    })
-    .then(res => res.json())
-    .then(data => setMessages(data.messages));
-
     return () => socket.disconnect();
   }, [])
 
