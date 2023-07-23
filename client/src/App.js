@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { ThemeProvider, createTheme, Box, Container } from '@mui/material';
+import { ThemeProvider, createTheme, Container } from '@mui/material';
 import ChatWindow from './components/ChatWindow';
 import ChatInput from './components/ChatInput';
 
@@ -61,6 +61,10 @@ function App() {
     setShowNameSelector(false);
   }
 
+  const onEditName = () => {
+    setShowNameSelector(true);
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <meta name="viewport" content="initial-scale=1, width=device-width" />
@@ -72,7 +76,7 @@ function App() {
         name={name} 
       />
       <Container maxWidth={false}>
-        <CurrentName name={name} />
+        <CurrentName name={name} onEdit={onEditName} />
       </Container>
       <Container maxWidth={false}>
         <ChatWindow 

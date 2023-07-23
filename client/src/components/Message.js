@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 export default function Message(props) {
     const getNameColor = name => {
         console.log(`name: ${name}, props.name: ${props.name}`)
-        if(name == props.name) {
+        if(name === props.name) {
             return props.ownNameColor;
         }
 

@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
-import { Box } from '@mui/material';
+import { Box, Button } from '@mui/material';
+import EditIcon from '@mui/icons-material/Edit';
 
 export default function CurrentName(props) {
     return (
@@ -8,11 +9,13 @@ export default function CurrentName(props) {
           fontSize="16px"
           marginBottom="0.5em"
         >
-          <strong>Name: <div style={{color:"lime", display:"inline"}}>{props.name}</div></strong>
+          <strong>Name: <div style={{color:"lime", display:"inline", marginRight:"0.5em"}}>{props.name}</div></strong>
+          <Button onClick={props.onEdit}><EditIcon style={{fontSize:"16px"}}/></Button>
         </Box>
     );
 }
 
 CurrentName.propTypes = {
-    name: PropTypes.string
+    name: PropTypes.string,
+    onEdit: PropTypes.func
 }
