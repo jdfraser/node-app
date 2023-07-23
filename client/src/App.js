@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Container from '@mui/material/Container';
 import { ThemeProvider, createTheme, styled } from '@mui/material/styles';
 import ChatWindow from './components/ChatWindow';
@@ -13,10 +13,10 @@ const theme = createTheme({
 });
 
 function App() {
-  const [message, setMessage] = React.useState('');
-  const [messages, setMessages] = React.useState([]);
+  const [message, setMessage] = useState('');
+  const [messages, setMessages] = useState([]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     fetch('/messages', {
       method: 'GET'
     })
@@ -36,7 +36,6 @@ function App() {
     })
     .then(res => res.json())
     .then(data => setMessages(data.messages))
-    .then(messages => console.log(messages));
   }
 
   const onMessageChange = event => {

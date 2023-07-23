@@ -1,8 +1,18 @@
+import React, {useEffect, useRef} from 'react';
 import { Box } from '@mui/material';
 import Message from './Message';
 
 export default function ChatWindow(props) {
     const messages = props.messages;
+    const messagesEndRef = useRef(null)
+
+    const scrollToBottom = () => {
+        messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
+    }
+
+    useEffect(() => {
+        scrollToBottom();
+    }, [messages])
 
     return (
         <Box 
@@ -17,7 +27,8 @@ export default function ChatWindow(props) {
             overflowY: "scroll"
           }}
         >
-            {messages.map((m) => (<Message message={m}/>))}
+            {messages.map((m, i) => (<Message key={`message-${i}`} message={m}/>))}
+            <div ref={messagesEndRef} />
         </Box>
     );
 }
