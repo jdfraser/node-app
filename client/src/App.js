@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import Container from '@mui/material/Container';
-import { ThemeProvider, createTheme, styled } from '@mui/material/styles';
+import { ThemeProvider, createTheme, Box, Container } from '@mui/material';
 import ChatWindow from './components/ChatWindow';
 import ChatInput from './components/ChatInput';
 
 import './App.css';
+import NameSelector from './components/NameSelector';
 
 const theme = createTheme({
   palette: {
@@ -15,6 +15,8 @@ const theme = createTheme({
 function App() {
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
+  const [showNameSelector, setShowNameSelector] = useState(true);
+  const [name, setName] = useState('');
 
   useEffect(() => {
     fetch('/messages', {
@@ -47,9 +49,31 @@ function App() {
     sendMessage(message);
   }
 
+  const onNameChange = event => {
+    setName(event.target.value);
+  }
+
+  const onNameSubmit = () => {
+    setShowNameSelector(false);
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <meta name="viewport" content="initial-scale=1, width=device-width" />
+      <NameSelector 
+        open={showNameSelector}
+        onChange={onNameChange}
+        onSubmit={onNameSubmit}
+        name={name} 
+      />
+      <Container maxWidth={false}>
+        <Box
+          fontFamily="Monospace"
+          fontSize="16px"
+        >
+          Name: {name}
+        </Box>
+      </Container>
       <Container maxWidth={false}>
         <ChatWindow messages={messages} />
       </Container>
