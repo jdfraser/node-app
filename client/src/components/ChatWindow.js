@@ -21,9 +21,10 @@ export default function ChatWindow(props) {
         borderRadius="10px" 
         marginBottom="1em" 
         width="100%" 
-        height="15em"
+        height="40em"
         fontFamily="Monospace"
         fontSize="16px"
+        backgroundColor="#1c1c1c"
         style={{
             overflowY: "scroll"
           }}

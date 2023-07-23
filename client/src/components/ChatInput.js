@@ -13,7 +13,7 @@ export default function ChatInput(props) {
 
     return (
         <Grid container spacing={2}>
-            <Grid item xs={10}>
+            <Grid item xs={12} md={10} xl={11}>
                 <TextField 
                 id="chat-input" 
                 variant="outlined"
@@ -27,7 +27,7 @@ export default function ChatInput(props) {
                 style={{width: "100%"}}
                 />
             </Grid>
-            <Grid item xs={2}>
+            <Grid item md={2} xl={1} sx={{display: {xs: 'none', md: 'block'}}}>
                 <SendButton onClick={props.onSend} style={{width: "100%"}} />
             </Grid>
         </Grid>
