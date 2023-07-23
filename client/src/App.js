@@ -79,7 +79,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <meta name="viewport" content="initial-scale=1, width=device-width" />
       <Grid container spacing={2} alignItems="center" justifyContent="center" direction="row">
-        <Grid item xs={8}>
+        <Grid item xs={11} lg={8}>
           <NameSelector 
             open={showNameSelector}
             onChange={handleChangeName}
@@ -96,7 +96,7 @@ function App() {
             name={name}
           />
         </Grid>
-        <Grid item xs={8}>
+        <Grid item xs={11} lg={8}>
           <ChatInput 
             onMessageChange={handleChangeMessage} 
             onSend={handleSubmitMessage} 

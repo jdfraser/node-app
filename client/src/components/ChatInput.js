@@ -19,12 +19,14 @@ export default function ChatInput(props) {
                 variant="outlined"
                 label="Say something..."
                 multiline
+                fullWidth
                 maxRows={2}
                 size="small"
                 onChange={props.onMessageChange}
                 onKeyDown={handleKeyDown}
                 value={props.message}
-                style={{width: "100%"}}
+                inputProps={{style: {fontFamily: "Monospace"}}}
+                style={{backgroundColor: "#1c1c1c"}}
                 />
             </Grid>
             <Grid item md={2} xl={1} sx={{display: {xs: 'none', md: 'block'}}}>
