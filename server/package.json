@@ -5,7 +5,7 @@
   "main": "src/app.js",
   "type": "module",
   "scripts": {
-    "start": "DEBUG=app nodemon src/app.js",
+    "start": "DEBUG=app nodemon src/app.js --inspect",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "debug": "DEBUG=* nodemon src/app.js"
   },
