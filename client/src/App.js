@@ -1,11 +1,13 @@
 import React, {useEffect, useState} from 'react';
+import { io } from 'socket.io-client';
 import { ThemeProvider, createTheme, Grid } from '@mui/material';
+
 import ChatWindow from './components/ChatWindow';
 import ChatInput from './components/ChatInput';
-
-import './App.css';
 import NameSelector from './components/NameSelector';
 import CurrentName from './components/CurrentName';
+
+import './App.css';
 
 const theme = createTheme({
   palette: {
@@ -23,11 +25,18 @@ function App() {
   const [name, setName] = useState('');
 
   useEffect(() => {
+    const socket = io();
+    socket.on('updateMessages', messages => {
+      setMessages(messages);
+    });
+
     fetch('/messages', {
       method: 'GET'
     })
     .then(res => res.json())
     .then(data => setMessages(data.messages));
+
+    return () => socket.disconnect();
   }, [])
 
   const sendMessage = message => {
@@ -46,8 +55,6 @@ function App() {
         message: {name: name, text: message}
       })
     })
-    .then(res => res.json())
-    .then(data => setMessages(data.messages))
   }
 
   const onMessageChange = event => {
