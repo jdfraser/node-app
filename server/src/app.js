@@ -11,6 +11,8 @@ const PORT = process.env.PORT || 4000;
 
 const logDebug = debug('app');
 
+logDebug("process env: " + JSON.stringify(process.env));
+
 const app = express();
 app.use(morgan('combined'));
 app.use(express.static(path.join(__dirname, '../../client/build')));
@@ -25,4 +27,4 @@ app.get('*', (req, res) => {
 
 app.listen(PORT, () => {
     logDebug(`Listening on port ${chalk.green(PORT)}`);
-})
+})  
