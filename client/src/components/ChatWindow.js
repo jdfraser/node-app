@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 export default function ChatWindow(props) {
     const messages = props.messages;
-    const messagesEndRef = useRef(null)
+    const messagesEndRef = useRef(null);
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
@@ -33,8 +33,8 @@ export default function ChatWindow(props) {
             <Message 
               key={`message-${i}`} 
               message={m}
-              ownNameColor={props.ownNameColor}
-              otherNameColor={props.otherNameColor}
+              ownNameClass={props.ownNameColor}
+              otherNameClass={props.otherNameColor}
               name={props.name}
             />))}
             <div ref={messagesEndRef} />

@@ -9,7 +9,7 @@ export default function CurrentName(props) {
           fontSize="16px"
           marginBottom="0.5em"
         >
-          <strong>Name: <div style={{color:"lime", display:"inline", marginRight:"0.5em"}}>{props.name}</div></strong>
+          <strong>Name: <div class='name-own' style={{display:"inline", marginRight:"0.5em"}}>{props.name}</div></strong>
           <Button onClick={props.onEdit}><EditIcon style={{fontSize:"16px"}}/></Button>
         </Box>
     );

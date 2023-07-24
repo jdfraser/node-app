@@ -2,18 +2,18 @@ import { Box } from '@mui/material';
 import PropTypes from 'prop-types';
 
 export default function Message(props) {
-    const getNameColor = name => {
+    const getNameClass = name => {
         if(name === props.name) {
-            return props.ownNameColor;
+            return 'name-own';
         }
 
-        return props.otherNameColor;
+        return 'name-other';
     }
 
     return (
         <Box margin="0.5em">
-            <strong 
-              style={{color: getNameColor(props.message.name)}}
+            <strong
+              class={getNameClass(props.message.name)}
             >
                 {props.message.name}:
             </strong> {props.message.text}
@@ -22,8 +22,6 @@ export default function Message(props) {
 }
 
 Message.propTypes = {
-    ownNameColor: PropTypes.string,
-    otherNameColor: PropTypes.string,
     name: PropTypes.string,
     message: PropTypes.object
 }

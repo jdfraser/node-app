@@ -21,6 +21,14 @@ body {
   color: #61dafb;
 }
 
+.name-own {
+  color: lime
+}
+
+.name-other {
+  color: #7c9dff
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

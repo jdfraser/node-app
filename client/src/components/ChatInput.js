@@ -7,7 +7,7 @@ export default function ChatInput(props) {
     const handleKeyDown = event => {
         if(event.key === 'Enter'){
             event.preventDefault();
-            props.onSend();
+            props.onSubmit();
         }
     }
 
@@ -15,7 +15,7 @@ export default function ChatInput(props) {
         <Grid container spacing={2}>
             <Grid item xs={12} md={10} xl={11}>
                 <TextField 
-                id="chat-input" 
+                data-testid="chat-input-field"
                 variant="outlined"
                 label="Say something..."
                 multiline
@@ -30,14 +30,14 @@ export default function ChatInput(props) {
                 />
             </Grid>
             <Grid item md={2} xl={1} sx={{display: {xs: 'none', md: 'block'}}}>
-                <SendButton onClick={props.onSend} style={{width: "100%"}} />
+                <SendButton onClick={props.onSubmit} style={{width: "100%"}} />
             </Grid>
         </Grid>
     );
 }
 
 ChatInput.propTypes = {
-    onSend: PropTypes.func,
+    onSubmit: PropTypes.func,
     onMessageChange: PropTypes.func,
     message: PropTypes.string,
 }

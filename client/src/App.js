@@ -15,9 +15,6 @@ const theme = createTheme({
   },
 });
 
-const ownNameColor = "lime";
-const otherNameColor = "#7c9dff";
-
 function App() {
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
@@ -85,21 +82,18 @@ function App() {
             onChange={handleChangeName}
             onSubmit={handleSubmitName}
             onClose={handleCloseNameSelector}
-            ownNameColor={ownNameColor}
             name={name} 
           />
           <CurrentName name={name} onEdit={handleOpenNameSelector} />
           <ChatWindow 
             messages={messages} 
-            ownNameColor={ownNameColor}
-            otherNameColor={otherNameColor}
             name={name}
           />
         </Grid>
         <Grid item xs={11} lg={8}>
           <ChatInput 
             onMessageChange={handleChangeMessage} 
-            onSend={handleSubmitMessage} 
+            onSubmit={handleSubmitMessage} 
             message={message} 
           />
         </Grid>
