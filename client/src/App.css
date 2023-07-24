@@ -21,6 +21,10 @@ body {
   color: #61dafb;
 }
 
+.name {
+  font-weight: bold;
+}
+
 .name-own {
   color: lime
 }
