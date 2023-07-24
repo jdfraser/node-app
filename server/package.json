@@ -5,9 +5,10 @@
   "main": "src/app.js",
   "type": "module",
   "scripts": {
-    "start": "DEBUG=app nodemon src/app.js --inspect",
+    "start": "DEBUG=app nodemon built/app.js --inspect",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
-    "debug": "DEBUG=* nodemon src/app.js"
+    "debug": "DEBUG=* nodemon src/app.js",
+    "build": "tsc"
   },
   "author": "",
   "license": "ISC",
@@ -21,7 +22,8 @@
   },
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.22.5",
-    "jest": "^29.6.1"
+    "jest": "^29.6.1",
+    "typescript": "^5.1.6"
   },
   "nodemonConfig": {
     "restartable": "rs",
