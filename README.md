@@ -16,7 +16,7 @@ To run the server as a standalone process:
 ```
 cd server && npm start
 ```
-To run the client as a standalone process:
+To run the client as a standalone process (client will run on port 3000 to avoid collision with server):
 ```
 cd client && npm start
 ```
