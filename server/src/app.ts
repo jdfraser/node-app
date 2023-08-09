@@ -1,4 +1,4 @@
-import express, { Express, Request, Response } from 'express';
+import express from 'express';
 import chalk from 'chalk';
 import morgan from 'morgan';
 import path from 'path';
@@ -8,33 +8,27 @@ import { Server } from 'socket.io';
 import Message from './models/message.js';
 import log from './utils/log.js';
 import db from './persistence/database.js';
+import messageController from './api/messages/index.js';
 
 // construct __dirname since it's not available in ES modules
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PORT = process.env.PORT || 4000;
-const messages: Message[] = [];
 
 const app = express();
-app.use(morgan('combined'));
-app.use(express.static(path.join(__dirname, '../../client/build')));
-app.use(express.json());
-
 const httpServer = http.createServer(app);
 const io = new Server(httpServer);
 
+app.use(morgan('combined'));
+app.use(express.static(path.join(__dirname, '../../client/build')));
+app.use(express.json());
+app.use('/messages', messageController(io));
+
 io.on('connection', socket => {
     log.info('New connection.');
-    socket.emit('updateMessages', messages);
 
     socket.on('disconnect', () => {
         log.info('Client disconnected');
     })
-})
-
-app.post('/messages', (req, res) => {
-    messages.push(req.body.message);
-    io.emit('updateMessages', messages);
-    res.sendStatus(200);
 })
 
 app.get('*', (req, res) => {
