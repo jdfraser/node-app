@@ -5,7 +5,6 @@ import path from 'path';
 import http from 'http';
 import { fileURLToPath } from 'url';
 import { Server } from 'socket.io';
-import Message from './models/message.js';
 import log from './utils/log.js';
 import db from './persistence/database.js';
 import messageController from './api/messages/index.js';
@@ -47,3 +46,6 @@ httpServer.listen(PORT, async () => {
     
     log.info(`Listening on port ${chalk.green(PORT)}`);
 })  
+
+// export for testing
+export default httpServer;

@@ -17,6 +17,13 @@ const controller: Controller = (io: socketIo.Server) => {
         res.sendStatus(200);
     })
 
+    router.get('/', (req, res) => {
+        const json = JSON.stringify(messages);
+
+        res.setHeader('Content-Type', 'application/json');
+        res.end(json);
+    })
+
     return router;
 }
 

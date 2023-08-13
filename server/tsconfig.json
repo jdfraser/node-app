@@ -2,10 +2,16 @@
     "compilerOptions": {
         "outDir": "./built",
         "allowJs": true,
-        "target": "esnext",
+        "target": "es2022",
         "module": "nodenext",
+        "moduleResolution": "nodenext",
         "noEmitOnError": true,
-        "esModuleInterop": true
+        "esModuleInterop": true,
+        "baseUrl": "."
     },
-    "include": ["./src/**/*"],
+    "ts-node": {
+        "transpileOnly": true,
+        "files": true,
+    },
+    "include": ["./src/**/*", "./tests/**/*"]
 }
