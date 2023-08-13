@@ -2,7 +2,7 @@
     "compilerOptions": {
         "outDir": "./built",
         "allowJs": true,
-        "target": "es2022",
+        "target": "esnext",
         "module": "nodenext",
         "moduleResolution": "nodenext",
         "noEmitOnError": true,
