@@ -1,8 +1,7 @@
-import express from 'express';
-import { Response } from 'express-serve-static-core';
+import { Router, Response } from 'express';
 
 const error = (
-    res: Response<any, Record<string, any>, number>, 
+    res: Response, 
     err: unknown,
     statusCode: number = 500
 ) => {
@@ -17,7 +16,7 @@ const error = (
 }
 
 interface Controller {
-    (...args: any[]): express.Router;
+    (...args: any[]): Router;
 };
 
 export {
