@@ -13,7 +13,7 @@ export default function Message(props) {
     return (
         <Box margin="0.5em">
             <span className={`${getNameClass(props.message.name)} name`}>
-                {props.message.name}:
+                {props.message.name}
             </span>
             {props.message.text}
         </Box>
