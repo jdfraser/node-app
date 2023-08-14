@@ -33,8 +33,8 @@ export default function ChatWindow(props) {
             <Message 
               key={`message-${i}`} 
               message={m}
-              ownNameClass={props.ownNameColor}
-              otherNameClass={props.otherNameColor}
+              ownNameColor={props.ownNameColor}
+              otherNameColor={props.otherNameColor}
               name={props.name}
             />))}
             <div ref={messagesEndRef} />

@@ -3,15 +3,12 @@
 This is a demo app which provides a simple chat server in node, and a client in React.
 
 ## Local Development
-To run locally, clone the repo, then from within your local repo's root directory, run:
-```
-cd server
-npm start
-```
-After starting up, the app will be available at http://localhost:4000.
+To run the server locally, simply run `npm start` from the `server` directory. The app will start using `nodemon`.
+
+To run the client, run `npm start` from the `client` directory to start `webpack-dev-server`. Webpack will proxy requests to the server if it is running (recommended).
 
 ## Testing
-The `client` and `server` directories each have their own set of tests. To run either, `cd` to that directory, then use:
+The `client` and `server` directories each have their own set of tests. To run either, simply run
 ```
 npm test
 ```

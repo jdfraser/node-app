@@ -7,6 +7,9 @@ import ChatInput from '../components/ChatInput';
 import NameSelector from '../components/NameSelector';
 import CurrentName from '../components/CurrentName';
 
+const ownNameColor = 'lime';
+const otherNameColor = '#7c9dff';
+
 export default function ChatContainer() {
     const [message, setMessage] = useState('');
     const [messages, setMessages] = useState([]);
@@ -29,7 +32,7 @@ export default function ChatContainer() {
 
         setMessage('');
 
-        fetch('/messages', {
+        fetch('/api/messages', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -74,10 +77,16 @@ export default function ChatContainer() {
             onClose={handleCloseNameSelector}
             name={name} 
           />
-          <CurrentName name={name} onEdit={handleOpenNameSelector} />
+          <CurrentName 
+            name={name}
+            onEdit={handleOpenNameSelector} 
+            ownNameColor={ownNameColor}
+          />
           <ChatWindow 
             messages={messages} 
             name={name}
+            ownNameColor={ownNameColor}
+            otherNameColor={otherNameColor}
           />
         </Grid>
         <Grid item xs={11} lg={8}>

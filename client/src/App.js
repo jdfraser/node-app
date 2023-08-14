@@ -1,8 +1,7 @@
 import React from 'react';
 import { ThemeProvider, createTheme } from '@mui/material';
+import CssBaseline from '@mui/material/CssBaseline';
 import ChatContainer from './containers/ChatContainer';
-
-import './App.css';
 
 const theme = createTheme({
   palette: {
@@ -10,10 +9,10 @@ const theme = createTheme({
   },
 });
 
-function App() {
+function App(props) {
   return (
     <ThemeProvider theme={theme}>
-      <meta name="viewport" content="initial-scale=1, width=device-width" />
+      <CssBaseline />
       <ChatContainer />
     </ThemeProvider>
   );

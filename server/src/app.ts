@@ -18,9 +18,9 @@ const httpServer = http.createServer(app);
 const io = new Server(httpServer);
 
 app.use(morgan('combined'));
-app.use(express.static(path.join(__dirname, '../../client/build')));
+app.use(express.static(path.join(__dirname, '../../client/dist')));
 app.use(express.json());
-app.use('/messages', messageController(io));
+app.use('/api/messages', messageController(io));
 
 io.on('connection', socket => {
     log.info('New connection.');
@@ -31,7 +31,7 @@ io.on('connection', socket => {
 })
 
 app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../..client/build', 'index.html'))
+    res.sendFile(path.resolve(__dirname, '../../client/dist', 'index.html'))
 })
 
 httpServer.listen(PORT, async () => {
